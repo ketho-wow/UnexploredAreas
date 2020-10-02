@@ -1,0 +1,10 @@
+## Interface: 80300
+## Version: @project-version@
+## Title: UnexploredAreas
+## Notes: Finds unexplored areaIDs for a uiMap
+## Author: Ketho
+
+AreaTable.lua
+UiMapAssignment.lua
+
+UnexploredAreas.lua
