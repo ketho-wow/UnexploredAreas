@@ -1,7 +1,8 @@
 -- https://github.com/Ketho/WoWtoolsParser/blob/master/examples/AreaTable.lua
-local _, tbl = ...
+local _, ns = ...
+ns.retail = {}
 
-tbl.AreaTable = {
+ns.retail.AreaTable = {
 	[1] = { -- Dun Morogh
 		[131] = "Kharanos",
 		[134] = "Gol'Bolar Quarry",

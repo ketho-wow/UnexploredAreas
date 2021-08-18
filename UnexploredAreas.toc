@@ -1,10 +1,14 @@
-## Interface: 80300
+## Interface-Retail: 90100
+## Interface-BCC: 20501
 ## Version: @project-version@
 ## Title: UnexploredAreas
 ## Notes: Finds unexplored areaIDs for a uiMap
 ## Author: Ketho
 
-AreaTable.lua
-UiMapAssignment.lua
+retail/AreaTable.lua
+retail/UiMapAssignment.lua
+
+tbc/AreaTable.lua
+tbc/UiMapAssignment.lua
 
 UnexploredAreas.lua

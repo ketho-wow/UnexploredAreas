@@ -1,6 +1,6 @@
-local _, tbl = ...
+local _, ns = ...
 
-tbl.UiMapAssignment = {
+ns.retail.UiMapAssignment = {
 	[1] = 14,
 	[7] = 215,
 	[10] = 17,

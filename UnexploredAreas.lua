@@ -14,10 +14,17 @@
 
 local _, addonTbl = ...
 
+local data
+if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
+	data = addonTbl.retail
+else
+	data = addonTbl.tbc
+end
+
 UnexploredAreas = {}
 local UA = UnexploredAreas
-UA.AreaTable = addonTbl.AreaTable
-UA.UiMapAssignment = addonTbl.UiMapAssignment
+UA.AreaTable = data.AreaTable
+UA.UiMapAssignment = data.UiMapAssignment
 
 local grid
 
@@ -56,15 +63,18 @@ end
 
 -- /run UnexploredAreas:GetAreaInfo(27)
 function UA:GetAreaInfo(uiMapID)
+	if not uiMapID then
+		uiMapID = C_Map.GetBestMapForUnit("player")
+	end
 	local parentAreaID = self.UiMapAssignment[uiMapID]
 	local areaIDs = self.AreaTable[parentAreaID]
 	local discovered = self:GetDiscoveredAreaIDs(uiMapID)
-	local undiscovered = {}
-	for id in pairs(areaIDs) do
-		if not discovered[id] then
-			undiscovered[id] = true
-		end
-	end
+	-- local undiscovered = {}
+	-- for id in pairs(areaIDs) do
+	-- 	if not discovered[id] then
+	-- 		undiscovered[id] = true
+	-- 	end
+	-- end
 	print(format("%s: uiMapID |cffFFFF00%d|r, areaID |cffFFFF00%d|r",
 		C_Map.GetMapInfo(uiMapID).name, uiMapID, parentAreaID))
 	for _, id in pairs(SortKeys(areaIDs)) do
